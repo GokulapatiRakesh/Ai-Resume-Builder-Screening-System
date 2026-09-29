@@ -1,0 +1,1099 @@
+/* =====================================================
+   RESET
+===================================================== */
+ 
+* {
+  box-sizing: border-box;
+}
+ 
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+ 
+html {
+  overflow-x: hidden;
+}
+ 
+body {
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+ 
+ 
+/* =====================================================
+   FULL SCREEN PAGE
+===================================================== */
+ 
+.admin-page {
+  position: relative;
+ 
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+ 
+  display: flex;
+ 
+  margin: 0;
+  padding: 0;
+ 
+  background: #ffffff;
+ 
+  overflow: hidden;
+}
+ 
+ 
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+ 
+.admin-container {
+  position: relative;
+ 
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+ 
+  display: flex;
+ 
+  margin: 0;
+  padding: 0;
+ 
+  overflow: hidden;
+ 
+  background: #ffffff;
+}
+ 
+ 
+/* =====================================================
+   LEFT SIDE
+   SMOOTH BLUE → WHITE BLEND
+===================================================== */
+ 
+.admin-left {
+  position: relative;
+ 
+  width: 57%;
+  height: 100vh;
+ 
+  flex-shrink: 0;
+ 
+  overflow: hidden;
+ 
+  /*
+    The original blue background gradually becomes
+    lighter toward the right side.
+  */
+  background: linear-gradient(
+    110deg,
+    #566f9e 0%,
+    #5f77a3 30%,
+    #748bad 52%,
+    #a9b8cc 70%,
+    #d5dce7 82%,
+    #eef1f5 92%,
+    #ffffff 100%
+  );
+}
+ 
+ 
+/* =====================================================
+   LEFT SIDE FADE
+   THIS CREATES THE PIC2-STYLE BLEND
+===================================================== */
+ 
+.admin-left::after {
+  content: "";
+ 
+  position: absolute;
+ 
+  top: 0;
+  right: 0;
+ 
+  width: 34%;
+  height: 100%;
+ 
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.04) 10%,
+    rgba(255, 255, 255, 0.10) 22%,
+    rgba(255, 255, 255, 0.20) 35%,
+    rgba(255, 255, 255, 0.36) 50%,
+    rgba(255, 255, 255, 0.55) 65%,
+    rgba(255, 255, 255, 0.75) 78%,
+    rgba(255, 255, 255, 0.90) 90%,
+    #ffffff 100%
+  );
+ 
+  z-index: 3;
+ 
+  pointer-events: none;
+}
+ 
+ 
+/* =====================================================
+   LEFT CONTENT
+===================================================== */
+ 
+.admin-left-content {
+  position: absolute;
+ 
+  top: 8%;
+  left: 10%;
+ 
+  width: 75%;
+ 
+  z-index: 5;
+}
+ 
+ 
+/* =====================================================
+   BRAND
+===================================================== */
+ 
+.admin-brand {
+  margin: 0 0 18px;
+ 
+  color: #ffffff;
+ 
+  font-size: clamp(11px, 0.75vw, 15px);
+ 
+  line-height: 1.2;
+ 
+  font-weight: 700;
+}
+ 
+ 
+/* =====================================================
+   TITLE
+===================================================== */
+ 
+.admin-left-title {
+  margin: 0;
+ 
+  max-width: 650px;
+ 
+  color: #ffffff;
+ 
+  font-size: clamp(25px, 2vw, 36px);
+ 
+  line-height: 1.2;
+ 
+  font-weight: 700;
+}
+ 
+ 
+/* =====================================================
+   ILLUSTRATION
+===================================================== */
+ 
+.admin-illustration {
+  position: absolute;
+ 
+  width: min(650px, 80%);
+ 
+  height: 58%;
+ 
+  left: 5%;
+  top: 25%;
+ 
+  display: block;
+ 
+  object-fit: contain;
+  object-position: center;
+ 
+  z-index: 2;
+}
+ 
+ 
+/* =====================================================
+   QUOTE
+===================================================== */
+ 
+.admin-quote {
+  position: absolute;
+ 
+  left: 10%;
+  bottom: 7%;
+ 
+  width: 55%;
+ 
+  min-height: 40px;
+ 
+  display: flex;
+ 
+  align-items: center;
+ 
+  padding: 8px 12px;
+ 
+  border-radius: 6px;
+ 
+  background: rgba(255, 255, 255, 0.94);
+ 
+  color: #17345f;
+ 
+  font-size: clamp(8px, 0.6vw, 11px);
+ 
+  line-height: 1.3;
+ 
+  font-weight: 600;
+ 
+  white-space: nowrap;
+ 
+  z-index: 7;
+}
+ 
+ 
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+ 
+.admin-right {
+  position: relative;
+ 
+  width: 43%;
+  height: 100vh;
+ 
+  flex-shrink: 0;
+ 
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+ 
+  background: #ffffff;
+ 
+  padding: 40px;
+ 
+  z-index: 10;
+}
+ 
+ 
+/* =====================================================
+   AUTH BOX
+===================================================== */
+ 
+.admin-auth {
+  width: min(420px, 100%);
+ 
+  margin: 0 auto;
+}
+ 
+ 
+/* =====================================================
+   TOP LOCK
+===================================================== */
+ 
+.admin-lock {
+  width: 38px;
+  height: 38px;
+ 
+  margin: 0 auto 10px;
+ 
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+ 
+  border-radius: 9px;
+ 
+  background: #17345f;
+ 
+  overflow: hidden;
+}
+ 
+.admin-lock img {
+  width: 27px;
+  height: 27px;
+ 
+  display: block;
+ 
+  object-fit: contain;
+}
+ 
+ 
+/* =====================================================
+   TITLE
+===================================================== */
+ 
+.admin-title {
+  margin: 0;
+ 
+  text-align: center;
+ 
+  color: #101820;
+ 
+  font-size: 18px;
+ 
+  line-height: 1.2;
+ 
+  font-weight: 700;
+}
+ 
+ 
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+ 
+.admin-description {
+  margin: 12px 0 25px;
+ 
+  text-align: center;
+ 
+  color: #8992a1;
+ 
+  font-size: 10px;
+ 
+  line-height: 1.2;
+}
+ 
+ 
+/* =====================================================
+   FORM
+===================================================== */
+ 
+.admin-form {
+  width: 100%;
+}
+ 
+ 
+/* =====================================================
+   LABEL
+===================================================== */
+ 
+.admin-form > label {
+  display: block;
+ 
+  margin: 0 0 10px;
+ 
+  color: #151b25;
+ 
+  font-size: 14px;
+ 
+  line-height: 1;
+ 
+  font-weight: 600;
+}
+ 
+ 
+/* =====================================================
+   INPUT WRAPPER
+===================================================== */
+ 
+.admin-input-wrapper {
+  position: relative;
+ 
+  width: 100%;
+  height: 58px;
+ 
+  margin-bottom: 22px;
+}
+ 
+ 
+/* =====================================================
+   INPUT
+===================================================== */
+ 
+.admin-input-wrapper input {
+  width: 100%;
+  height: 58px;
+ 
+  padding: 0 52px;
+ 
+  border: 1px solid #c9cedc;
+ 
+  border-radius: 10px;
+ 
+  outline: none;
+ 
+  background: #ffffff;
+ 
+  color: #34445b;
+ 
+  font-size: 13px;
+ 
+  font-family: Arial, Helvetica, sans-serif;
+ 
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+ 
+.admin-input-wrapper input::placeholder {
+  color: #7e8798;
+}
+ 
+.admin-input-wrapper input:focus {
+  border-color: #bfc5d5;
+ 
+  box-shadow:
+    0 0 0 1px rgba(80, 117, 173, 0.08);
+}
+ 
+ 
+/* =====================================================
+   INPUT ICON
+===================================================== */
+ 
+.admin-input-icon {
+  position: absolute;
+ 
+  left: 20px;
+  top: 50%;
+ 
+  width: 18px;
+  height: 18px;
+ 
+  transform: translateY(-50%);
+ 
+  object-fit: contain;
+ 
+  pointer-events: none;
+ 
+  z-index: 2;
+}
+ 
+ 
+/* =====================================================
+   PASSWORD ICON
+===================================================== */
+ 
+.password-icon {
+  width: 20px;
+  height: 20px;
+}
+ 
+ 
+/* =====================================================
+   PASSWORD INPUT
+===================================================== */
+ 
+.password-wrapper input {
+  padding-left: 58px;
+  padding-right: 58px;
+}
+ 
+ 
+/* =====================================================
+   PASSWORD EYE
+===================================================== */
+ 
+.admin-eye {
+  position: absolute;
+ 
+  right: 14px;
+  top: 50%;
+ 
+  width: 32px;
+  height: 32px;
+ 
+  padding: 0;
+ 
+  border: none;
+ 
+  transform: translateY(-50%);
+ 
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+ 
+  background: transparent;
+ 
+  cursor: pointer;
+ 
+  z-index: 3;
+}
+ 
+.admin-eye img {
+  width: 25px;
+  height: 25px;
+ 
+  display: block;
+ 
+  object-fit: contain;
+}
+ 
+ 
+/* =====================================================
+   OPTIONS
+===================================================== */
+ 
+.admin-options {
+  width: 100%;
+ 
+  display: flex;
+ 
+  align-items: center;
+  justify-content: space-between;
+ 
+  margin-top: -2px;
+ 
+  margin-bottom: 20px;
+}
+ 
+ 
+/* =====================================================
+   REMEMBER
+===================================================== */
+ 
+.admin-remember {
+  display: flex;
+ 
+  align-items: center;
+ 
+  gap: 8px;
+ 
+  color: #4d5664;
+ 
+  font-size: 11px;
+ 
+  cursor: pointer;
+}
+ 
+.admin-remember input {
+  appearance: none;
+ 
+  width: 14px;
+  height: 14px;
+ 
+  margin: 0;
+ 
+  border: 1px solid #bdc7d5;
+ 
+  border-radius: 1px;
+ 
+  background: #ffffff;
+ 
+  cursor: pointer;
+}
+ 
+.admin-remember input:checked {
+  background: #17345f;
+ 
+  box-shadow:
+    inset 0 0 0 2px #ffffff;
+}
+ 
+ 
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+ 
+.admin-forgot {
+  padding: 0;
+ 
+  border: none;
+ 
+  background: transparent;
+ 
+  color: #252b35;
+ 
+  font-size: 11px;
+ 
+  cursor: pointer;
+}
+ 
+ 
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+ 
+.admin-login-button {
+  width: 100%;
+  height: 50px;
+ 
+  padding: 0;
+ 
+  border: none;
+ 
+  border-radius: 7px;
+ 
+  background: #102d60;
+ 
+  color: #ffffff;
+ 
+  font-size: 12px;
+ 
+  font-weight: 700;
+ 
+  cursor: pointer;
+ 
+  transition: background 0.2s ease;
+}
+ 
+.admin-login-button:hover {
+  background: #173b73;
+}
+ 
+ 
+/* =====================================================
+   OR
+===================================================== */
+ 
+.admin-or {
+  width: 100%;
+ 
+  display: flex;
+ 
+  align-items: center;
+ 
+  gap: 15px;
+ 
+  margin: 25px 0 16px;
+}
+ 
+.admin-or span {
+  flex: 1;
+ 
+  height: 1px;
+ 
+  background: #cfd5dd;
+}
+ 
+.admin-or p {
+  margin: 0;
+ 
+  color: #3e4652;
+ 
+  font-size: 10px;
+}
+ 
+ 
+/* =====================================================
+   CONTINUE WITH
+===================================================== */
+ 
+.admin-continue {
+  margin-bottom: 13px;
+ 
+  text-align: center;
+ 
+  color: #7d8797;
+ 
+  font-size: 8px;
+}
+ 
+ 
+/* =====================================================
+   SOCIAL
+===================================================== */
+ 
+.admin-social {
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+ 
+  gap: 20px;
+}
+ 
+.admin-social-button {
+  width: 42px;
+  height: 42px;
+ 
+  padding: 0;
+ 
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+ 
+  border: 1px solid #d0d5dc;
+ 
+  border-radius: 8px;
+ 
+  background: #f7f7f7;
+ 
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.14);
+ 
+  cursor: pointer;
+}
+ 
+.admin-social-button img {
+  display: block;
+ 
+  object-fit: contain;
+}
+ 
+.admin-social-button:first-child img {
+  width: 24px;
+  height: 24px;
+}
+ 
+.admin-social-button:last-child img {
+  width: 26px;
+  height: 26px;
+}
+ 
+ 
+/* =====================================================
+   HELP
+===================================================== */
+ 
+.admin-help {
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+ 
+  gap: 3px;
+ 
+  margin-top: 18px;
+ 
+  color: #6e7887;
+ 
+  font-size: 9px;
+}
+ 
+.admin-contact {
+  color: #2773cb;
+}
+ 
+ 
+/* =====================================================
+   LARGE SCREENS
+===================================================== */
+ 
+@media (min-width: 1600px) {
+ 
+  .admin-left-content {
+    left: 11%;
+    top: 9%;
+  }
+ 
+  .admin-left-title {
+    font-size: 38px;
+  }
+ 
+  .admin-illustration {
+    width: 700px;
+    height: 62%;
+ 
+    left: 3%;
+    top: 23%;
+  }
+ 
+  .admin-quote {
+    left: 11%;
+    bottom: 7%;
+    width: 56%;
+  }
+ 
+  .admin-auth {
+    width: 450px;
+  }
+ 
+  /*
+    Slightly wider fade on large screens
+    so there is no visible vertical boundary.
+  */
+  .admin-left::after {
+    width: 36%;
+  }
+}
+ 
+ 
+/* =====================================================
+   LAPTOP / TABLET
+===================================================== */
+ 
+@media (max-width: 1100px) and (min-width: 801px) {
+ 
+  .admin-left-content {
+    left: 8%;
+    width: 82%;
+  }
+ 
+  .admin-left-title {
+    font-size: 27px;
+  }
+ 
+  .admin-illustration {
+    width: 92%;
+    height: 58%;
+ 
+    left: 1%;
+    top: 25%;
+  }
+ 
+  .admin-quote {
+    left: 8%;
+    width: 72%;
+  }
+ 
+  .admin-auth {
+    width: 90%;
+    max-width: 380px;
+  }
+ 
+  .admin-right {
+    padding: 30px;
+  }
+ 
+  .admin-left::after {
+    width: 38%;
+  }
+}
+ 
+ 
+/* =====================================================
+   MOBILE / TABLET
+===================================================== */
+ 
+@media (max-width: 800px) {
+ 
+  .admin-page {
+    height: auto;
+    min-height: 100vh;
+ 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+ 
+  .admin-container {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+ 
+    display: flex;
+    flex-direction: column;
+ 
+    overflow: visible;
+  }
+ 
+  .admin-left {
+    width: 100%;
+ 
+    height: 420px;
+    min-height: 420px;
+  }
+ 
+  /*
+    On mobile the left section is stacked above
+    the right section, so the horizontal fade
+    is disabled.
+  */
+  .admin-left::after {
+    display: none;
+  }
+ 
+  .admin-left-content {
+    top: 30px;
+    left: 7%;
+ 
+    width: 86%;
+  }
+ 
+  .admin-brand {
+    font-size: 10px;
+    margin-bottom: 12px;
+  }
+ 
+  .admin-left-title {
+    font-size: 23px;
+    line-height: 1.18;
+ 
+    max-width: 100%;
+  }
+ 
+  .admin-illustration {
+    width: 380px;
+    height: 280px;
+ 
+    left: 50%;
+    top: 125px;
+ 
+    transform: translateX(-50%);
+  }
+ 
+  .admin-quote {
+    left: 7%;
+    bottom: 15px;
+ 
+    width: 86%;
+    height: 36px;
+ 
+    font-size: 7px;
+  }
+ 
+  .admin-right {
+    width: 100%;
+ 
+    height: auto;
+    min-height: 620px;
+ 
+    padding: 50px 20px 60px;
+ 
+    display: flex;
+ 
+    align-items: flex-start;
+    justify-content: center;
+  }
+ 
+  .admin-auth {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+ 
+ 
+/* =====================================================
+   PHONE
+===================================================== */
+ 
+@media (max-width: 600px) {
+ 
+  .admin-left {
+    height: 400px;
+    min-height: 400px;
+  }
+ 
+  .admin-left-content {
+    top: 27px;
+    left: 7%;
+ 
+    width: 86%;
+  }
+ 
+  .admin-brand {
+    font-size: 9px;
+  }
+ 
+  .admin-left-title {
+    font-size: 20px;
+  }
+ 
+  .admin-illustration {
+    width: 330px;
+    height: 250px;
+ 
+    top: 120px;
+  }
+ 
+  .admin-quote {
+    left: 7%;
+    bottom: 12px;
+ 
+    width: 86%;
+ 
+    font-size: 7px;
+  }
+ 
+  .admin-right {
+    min-height: 620px;
+ 
+    padding: 45px 20px 60px;
+  }
+ 
+  .admin-title {
+    font-size: 17px;
+  }
+ 
+  .admin-description {
+    font-size: 9px;
+  }
+ 
+  .admin-form > label {
+    font-size: 13px;
+  }
+ 
+  .admin-input-wrapper,
+  .admin-input-wrapper input {
+    height: 52px;
+  }
+ 
+  .admin-input-icon {
+    left: 17px;
+  }
+ 
+  .password-wrapper input {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+ 
+  .admin-eye {
+    right: 10px;
+  }
+ 
+  .admin-eye img {
+    width: 23px;
+    height: 23px;
+  }
+ 
+  .admin-login-button {
+    height: 46px;
+  }
+}
+ 
+ 
+/* =====================================================
+   SMALL PHONE
+===================================================== */
+ 
+@media (max-width: 400px) {
+ 
+  .admin-left {
+    height: 370px;
+    min-height: 370px;
+  }
+ 
+  .admin-left-content {
+    top: 24px;
+  }
+ 
+  .admin-brand {
+    font-size: 8px;
+  }
+ 
+  .admin-left-title {
+    font-size: 18px;
+  }
+ 
+  .admin-illustration {
+    width: 300px;
+    height: 225px;
+ 
+    top: 112px;
+  }
+ 
+  .admin-quote {
+    bottom: 10px;
+ 
+    height: 34px;
+ 
+    font-size: 6.5px;
+  }
+ 
+  .admin-right {
+    padding: 40px 16px 50px;
+  }
+ 
+  .admin-form > label {
+    font-size: 12px;
+  }
+ 
+  .admin-input-wrapper,
+  .admin-input-wrapper input {
+    height: 50px;
+  }
+ 
+  .password-icon {
+    width: 18px;
+    height: 18px;
+  }
+ 
+  .admin-eye img {
+    width: 22px;
+    height: 22px;
+  }
+}
+ 

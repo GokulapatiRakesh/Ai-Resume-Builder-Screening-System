@@ -1,0 +1,669 @@
+/* =========================================
+   MAIN PAGE
+========================================= */
+ 
+.verify-page {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+ 
+  display: flex;
+ 
+  overflow: hidden;
+ 
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+ 
+.verify-page * {
+  box-sizing: inherit;
+}
+ 
+ 
+/* =========================================
+   LEFT SIDE
+========================================= */
+ 
+.verify-left {
+  width: 50%;
+  height: 100%;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  overflow: hidden;
+ 
+  background: linear-gradient(
+    90deg,
+    #566b94 0%,
+    #6f81a4 25%,
+    #8e9cb7 48%,
+    #acb7cb 67%,
+    #cbd2df 85%,
+    #ffffff 100%
+  );
+}
+ 
+.left-content {
+  width: 82%;
+  height: 100%;
+ 
+  display: flex;
+  flex-direction: column;
+ 
+  justify-content: center;
+  align-items: center;
+ 
+  padding: clamp(10px, 2vh, 24px) 0;
+ 
+  overflow: hidden;
+}
+ 
+ 
+/* =========================================
+   LEFT TITLE
+========================================= */
+ 
+.brand-title {
+  width: 100%;
+ 
+  margin: 0 0 clamp(8px, 1.5vh, 18px);
+ 
+  color: #ffffff;
+ 
+  font-size: clamp(11px, 1vw, 16px);
+ 
+  font-weight: 700;
+ 
+  line-height: 1.2;
+ 
+  text-align: left;
+ 
+  transform: translateY(45px);
+ 
+  flex-shrink: 0;
+}
+ 
+.left-content h1 {
+  width: 100%;
+ 
+  margin: 0 0 clamp(8px, 1.5vh, 18px);
+ 
+  color: #f5f6f8;
+ 
+  font-size: clamp(24px, 2.45vw, 38px);
+ 
+  font-weight: 700;
+ 
+  line-height: 1.18;
+ 
+  text-align: left;
+ 
+  transform: translateY(45px);
+ 
+  flex-shrink: 0;
+}
+ 
+ 
+/* =========================================
+   ILLUSTRATION
+========================================= */
+ 
+.illustration-wrapper {
+  width: 100%;
+ 
+  display: flex;
+ 
+  justify-content: center;
+ 
+  align-items: center;
+ 
+  flex: 1 1 auto;
+ 
+  min-height: 0;
+ 
+  overflow: hidden;
+}
+ 
+.left-illustration {
+  display: block;
+ 
+  width: auto;
+ 
+  max-width: 100%;
+ 
+  max-height: min(54vh, 520px);
+ 
+  height: auto;
+ 
+  object-fit: contain;
+}
+ 
+ 
+/* =========================================
+   QUOTE
+========================================= */
+ 
+.quote-image {
+  display: block;
+ 
+  width: min(78%, 425px);
+ 
+  height: auto;
+ 
+  max-height: 6.5vh;
+ 
+  margin: clamp(5px, 1vh, 12px) auto 0;
+ 
+  object-fit: contain;
+ 
+  transform: translateY(-55px);
+ 
+  flex-shrink: 0;
+}
+ 
+ 
+/* =========================================
+   RIGHT SIDE
+========================================= */
+ 
+.verify-right {
+  width: 50%;
+  height: 100%;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  overflow: hidden;
+ 
+  background: #ffffff;
+}
+ 
+.verify-card {
+  width: min(78%, 470px);
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  text-align: center;
+}
+ 
+ 
+/* =========================================
+   VERIFY TITLE
+========================================= */
+ 
+.verify-card h2 {
+  margin: 0 0 clamp(14px, 2vh, 24px);
+ 
+  color: #102b5e;
+ 
+  font-size: clamp(17px, 1.35vw, 22px);
+  font-weight: 700;
+ 
+  line-height: 1.2;
+}
+ 
+.verify-description {
+  margin: 0;
+ 
+  color: #657084;
+ 
+  font-size: clamp(11px, 0.85vw, 14px);
+ 
+  line-height: 1.4;
+}
+ 
+ 
+/* =========================================
+   OTP CONTAINER & INPUTS
+========================================= */
+ 
+.otp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+ 
+  margin: 20px 0 14px;
+}
+ 
+.otp-container input {
+  width: 40px;
+  height: 42px;
+  min-width: 40px;
+  max-width: 40px;
+ 
+  padding: 0;
+  box-sizing: border-box;
+ 
+  border: 1px solid #8b95a5;
+  border-radius: 5px;
+ 
+  background: #ffffff;
+ 
+  font-size: 18px;
+  font-weight: 400;
+ 
+  color: #111827;
+ 
+  text-align: center;
+ 
+  outline: none;
+ 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+ 
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+ 
+.otp-container input:focus {
+  border-color: #17366f;
+ 
+  box-shadow: 0 0 0 1px #17366f;
+}
+ 
+ 
+/* =========================================
+   RESEND OTP
+========================================= */
+ 
+.resend-text {
+  width: 100%;
+ 
+  margin: clamp(10px, 1.8vh, 17px) 0 clamp(12px, 2vh, 20px);
+ 
+  color: #263b62;
+ 
+  font-size: clamp(10px, 0.75vw, 12px);
+ 
+  line-height: 1.4;
+}
+ 
+.resend-button {
+  padding: 0;
+ 
+  border: 0;
+ 
+  background: transparent;
+ 
+  color: #3c8bf2;
+ 
+  font: inherit;
+ 
+  cursor: pointer;
+}
+ 
+.resend-text span {
+  color: #8b94a4;
+}
+ 
+.resend-button:disabled {
+  color: #9aa3b2;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+ 
+ 
+/* =========================================
+   VERIFY BUTTON
+========================================= */
+ 
+.verify-button {
+  width: 100%;
+  height: clamp(40px, 5vh, 50px);
+ 
+  border: 0;
+  border-radius: 7px;
+ 
+  background: #152f62;
+ 
+  color: #ffffff;
+ 
+  font-size: clamp(11px, 0.85vw, 14px);
+  font-weight: 600;
+ 
+  cursor: pointer;
+ 
+  transition: background 0.2s ease;
+}
+ 
+.verify-button:hover {
+  background: #102650;
+}
+ 
+ 
+/* =========================================
+   BACK TO LOGIN
+========================================= */
+ 
+.back-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  gap: 8px;
+ 
+  margin-top: clamp(20px, 4vh, 38px);
+ 
+  padding: 0;
+ 
+  border: 0;
+ 
+  background: transparent;
+ 
+  color: #4285f4;
+ 
+  font-size: clamp(9px, 0.7vw, 11px);
+ 
+  cursor: pointer;
+}
+ 
+.back-login img {
+  width: 11px;
+  height: 11px;
+ 
+  object-fit: contain;
+}
+ 
+ 
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+ 
+@media (min-width: 1440px) {
+ 
+  .left-content {
+    width: 80%;
+  }
+ 
+  .left-illustration {
+    max-height: min(53vh, 560px);
+  }
+ 
+  .quote-image {
+    width: min(72%, 440px);
+  }
+ 
+  .verify-card {
+    width: min(72%, 500px);
+  }
+}
+ 
+ 
+/* =========================================
+   VERY LARGE SCREENS
+========================================= */
+ 
+@media (min-width: 1920px) {
+ 
+  .left-content {
+    width: 78%;
+  }
+ 
+  .brand-title {
+    font-size: 16px;
+  }
+ 
+  .left-content h1 {
+    font-size: 38px;
+  }
+ 
+  .left-illustration {
+    max-height: 54vh;
+  }
+ 
+  .quote-image {
+    max-width: 450px;
+  }
+}
+ 
+ 
+/* =========================================
+   SHORT DESKTOP / LAPTOP
+========================================= */
+ 
+@media (min-width: 768px) and (max-height: 800px) {
+ 
+  .left-content {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+ 
+  .brand-title {
+    margin-bottom: 8px;
+  }
+ 
+  .left-content h1 {
+    margin-bottom: 8px;
+    font-size: clamp(22px, 2.3vw, 32px);
+  }
+ 
+  .left-illustration {
+    max-height: 50vh;
+  }
+ 
+  .quote-image {
+    max-height: 6vh;
+    margin-top: 5px;
+  }
+ 
+  .verify-card h2 {
+    margin-bottom: 14px;
+  }
+ 
+  .resend-text {
+    margin-top: 10px;
+    margin-bottom: 14px;
+  }
+ 
+  .back-login {
+    margin-top: 20px;
+  }
+}
+ 
+ 
+/* =========================================
+   TABLET
+========================================= */
+ 
+@media (min-width: 768px) and (max-width: 1024px) {
+ 
+  .left-content {
+    width: 84%;
+  }
+ 
+  .brand-title {
+    font-size: 11px;
+  }
+ 
+  .left-content h1 {
+    font-size: clamp(20px, 3vw, 29px);
+  }
+ 
+  .left-illustration {
+    max-height: 50vh;
+  }
+ 
+  .quote-image {
+    width: 85%;
+    max-height: 6vh;
+  }
+ 
+  .verify-card {
+    width: 82%;
+  }
+ 
+  .verify-button {
+    height: 43px;
+  }
+}
+ 
+ 
+/* =========================================
+   MOBILE
+========================================= */
+ 
+@media (max-width: 767px) {
+ 
+  .verify-page {
+    flex-direction: column;
+  }
+ 
+  /* Increase top illustration area to 42dvh */
+  .verify-left {
+    display: flex;
+    width: 100%;
+    height: 42vh;
+    height: 42dvh;
+    background: linear-gradient(
+      180deg,
+      #566b94 0%,
+      #6f81a4 35%,
+      #8e9cb7 65%,
+      #ffffff 100%
+    );
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .left-content {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 0;
+    justify-content: center;
+  }
+ 
+  .brand-title,
+  .left-content h1,
+  .quote-image {
+    display: none;
+  }
+ 
+  .illustration-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  /* Make illustration significantly larger while preserving aspect ratio */
+  .left-illustration {
+    max-height: 100%;
+    max-width: 95%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transform: none;
+  }
+ 
+  /* Compact lower content container */
+  .verify-right {
+    width: 100%;
+    height: 58vh;
+    height: 58dvh;
+    min-height: unset;
+    max-height: unset;
+    flex: none;
+    padding: clamp(8px, 1.5vh, 16px) 16px clamp(12px, 2vh, 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  /* Center all form elements with clean vertical flow (no space-between) */
+  .verify-card {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .verify-card form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  .verify-card h2 {
+    margin-bottom: clamp(4px, 1vh, 8px);
+    font-size: clamp(16px, 4.5vw, 20px);
+  }
+ 
+  .verify-description {
+    font-size: clamp(10px, 2.8vw, 12px);
+    margin-bottom: 0;
+  }
+ 
+  /* Compact OTP boxes and gaps */
+  .otp-container {
+    margin: clamp(8px, 1.8vh, 14px) 0 clamp(6px, 1.2vh, 10px);
+    gap: clamp(4px, 1.5vw, 8px);
+  }
+ 
+  .otp-container input {
+    width: clamp(34px, 9vw, 40px);
+    min-width: clamp(34px, 9vw, 40px);
+    max-width: clamp(34px, 9vw, 40px);
+    height: clamp(36px, 5vh, 42px);
+    font-size: clamp(15px, 4vw, 18px);
+  }
+ 
+  /* Compact resend and button margins */
+  .resend-text {
+    margin: clamp(4px, 1vh, 8px) 0 clamp(8px, 1.8vh, 14px);
+    font-size: clamp(9px, 2.6vw, 11px);
+  }
+ 
+  .verify-button {
+    height: clamp(38px, 5vh, 44px);
+    font-size: clamp(11px, 3vw, 13px);
+  }
+ 
+  /* Keep Back to Login closely attached without huge empty space */
+  .back-login {
+    margin-top: clamp(10px, 2vh, 16px);
+    font-size: clamp(9px, 2.6vw, 11px);
+  }
+ 
+  .back-login img {
+    width: 10px;
+    height: 10px;
+  }
+}
+ 
+ 
+/* =========================================
+   SMALL MOBILE BREAKPOINT (320px - 380px)
+========================================= */
+ 
+@media (max-width: 380px) {
+ 
+  .verify-left {
+    height: 40vh;
+    height: 40dvh;
+  }
+ 
+  .verify-right {
+    height: 60vh;
+    height: 60dvh;
+    padding: 6px 12px 14px;
+  }
+ 
+  .left-illustration {
+    max-width: 92%;
+  }
+}
+ 
