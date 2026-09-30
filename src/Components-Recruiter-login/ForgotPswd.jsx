@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./ForgotPassword.css";
+import "./ForgotPswd.css";
 
 import leftIllustration from "../assets/forgot-pswd.png";
 import securityLock from "../assets/security-lock.png";
@@ -8,7 +8,7 @@ import googleIcon from "../assets/google.png";
 import linkedinIcon from "../assets/linkedin.png";
 import arrowIcon from "../assets/arrow.png";
 
-const ForgotPassword = () => {
+const ForgotPswd = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const ForgotPassword = () => {
     console.log("Reset link requested for:", email);
 
     // Navigate to Create Password page
-    navigate("/create-password");
+    navigate("/rec-create-password");
   };
 
   return (
@@ -139,7 +139,7 @@ const ForgotPassword = () => {
           </p>
 
           {/* Back to Login */}
-          <a href="/Loginpage" className="can-fp-back-login">
+          <a href="/Recruiter-login" className="can-fp-back-login">
             <img src={arrowIcon} alt="Back" />
             <span>Back to Login</span>
           </a>
@@ -149,4 +149,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPswd;

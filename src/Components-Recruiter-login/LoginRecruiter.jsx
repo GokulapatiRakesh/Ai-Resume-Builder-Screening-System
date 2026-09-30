@@ -47,7 +47,6 @@ const LoginRecruiter = () => {
     }
 
     // Login successful
-  
 
     // Navigate to Recruiter OTP Verification
     navigate("/verify-email");
@@ -71,7 +70,7 @@ const LoginRecruiter = () => {
   // Navigate to Forgot Password
   const handleForgotPassword = (e) => {
     e.preventDefault();
-    navigate("/forgot-password");
+    navigate("/rec-forgot-password");
   };
 
   // Toggle Remember Me
@@ -81,10 +80,8 @@ const LoginRecruiter = () => {
 
   return (
     <div className="recruiter-login-page">
-
       {/* ================= LEFT SECTION ================= */}
       <section className="recruiter-login-left-section">
-
         <div className="recruiter-login-brand">
           AI Resume Builder and Screening system
         </div>
@@ -99,22 +96,16 @@ const LoginRecruiter = () => {
           “Your role as a leader is to bring out the best in others, even when
           they know more than you.” — Wanda T. Wallace
         </div>
-
       </section>
 
       {/* ================= RIGHT SECTION ================= */}
       <section className="recruiter-login-right-section">
-
         <div className="recruiter-login-auth">
-
           {/* TITLE */}
-          <h1 className="recruiter-login-title">
-            Login your account
-          </h1>
+          <h1 className="recruiter-login-title">Login your account</h1>
 
           {/* ================= ROLE SWITCH ================= */}
           <div className="recruiter-login-role-switch">
-
             {/* Candidate */}
             <button
               type="button"
@@ -125,30 +116,18 @@ const LoginRecruiter = () => {
             </button>
 
             {/* Recruiter */}
-            <button
-              type="button"
-              className="recruiter-login-role active"
-            >
+            <button type="button" className="recruiter-login-role active">
               Recruiter
             </button>
-
           </div>
 
           {/* ================= LOGIN FORM ================= */}
-          <form
-            className="recruiter-login-form"
-            onSubmit={handleLogin}
-          >
-
+          <form className="recruiter-login-form" onSubmit={handleLogin}>
             {/* ================= USER NAME ================= */}
             <div className="recruiter-login-form-group">
-
-              <label htmlFor="username">
-                User Name
-              </label>
+              <label htmlFor="username">User Name</label>
 
               <div className="recruiter-login-input-wrapper">
-
                 <img
                   src={emailIcon}
                   alt=""
@@ -164,20 +143,14 @@ const LoginRecruiter = () => {
                   onChange={handleChange}
                   autoComplete="username"
                 />
-
               </div>
-
             </div>
 
             {/* ================= PASSWORD ================= */}
             <div className="recruiter-login-form-group">
-
-              <label htmlFor="password">
-                Password
-              </label>
+              <label htmlFor="password">Password</label>
 
               <div className="recruiter-login-input-wrapper">
-
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -193,38 +166,24 @@ const LoginRecruiter = () => {
                 <button
                   type="button"
                   className="recruiter-login-eye-button"
-                  onClick={() =>
-                    setShowPassword((prev) => !prev)
-                  }
+                  onClick={() => setShowPassword((prev) => !prev)}
                 >
                   <img
-                    src={
-                      showPassword
-                        ? closeEyeIcon
-                        : openEyeIcon
-                    }
-                    alt={
-                      showPassword
-                        ? "Hide password"
-                        : "Show password"
-                    }
+                    src={showPassword ? closeEyeIcon : openEyeIcon}
+                    alt={showPassword ? "Hide password" : "Show password"}
                   />
                 </button>
-
               </div>
-
             </div>
 
             {/* ================= REMEMBER / FORGOT ================= */}
             <div className="recruiter-login-options">
-
               {/* Remember Me */}
               <button
                 type="button"
                 className="recruiter-login-remember"
                 onClick={handleRememberMe}
               >
-
                 <span
                   className={`recruiter-login-checkbox ${
                     rememberMe ? "checked" : ""
@@ -233,10 +192,7 @@ const LoginRecruiter = () => {
                   {rememberMe && "✓"}
                 </span>
 
-                <span>
-                  Remember me
-                </span>
-
+                <span>Remember me</span>
               </button>
 
               {/* Forgot Password */}
@@ -247,78 +203,46 @@ const LoginRecruiter = () => {
               >
                 Forget Password?
               </a>
-
             </div>
 
             {/* ================= CONTINUE ================= */}
-            <button
-              type="submit"
-              className="recruiter-login-continue"
-            >
+            <button type="submit" className="recruiter-login-continue">
               Continue
             </button>
-
           </form>
 
           {/* ================= OR DIVIDER ================= */}
           <div className="recruiter-login-divider">
-
             <span></span>
 
             <p>OR</p>
 
             <span></span>
-
           </div>
 
           {/* ================= SOCIAL LOGIN ================= */}
-          <div className="recruiter-login-social-heading">
-            CONTINUE WITH
-          </div>
+          <div className="recruiter-login-social-heading">CONTINUE WITH</div>
 
           <div className="recruiter-login-social">
-
             {/* Google */}
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-            >
-              <img
-                src={googleIcon}
-                alt="Google"
-              />
+            <button type="button" onClick={handleGoogleLogin}>
+              <img src={googleIcon} alt="Google" />
             </button>
 
             {/* LinkedIn */}
-            <button
-              type="button"
-              onClick={handleLinkedInLogin}
-            >
-              <img
-                src={linkedinIcon}
-                alt="LinkedIn"
-              />
+            <button type="button" onClick={handleLinkedInLogin}>
+              <img src={linkedinIcon} alt="LinkedIn" />
             </button>
-
           </div>
 
           {/* ================= CREATE ACCOUNT ================= */}
           <div className="recruiter-login-account">
+            <span>Need help &</span>
 
-            <span>
-              Need help &
-            </span>
-
-            <a href="/register">
-              Create account
-            </a>
-
+            <a href="/register">Create account</a>
           </div>
-
         </div>
-
       </section>
-
     </div>
   );
 };

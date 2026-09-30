@@ -47,10 +47,9 @@ const LoginCandidate = () => {
     }
 
     // Login successful
-  
 
-    // Navigate to OTP verification page
-    navigate("/candidate-otp-verification");
+    // Navigate to Email verification page
+    navigate("/email-verification");
   };
 
   // Google login
@@ -81,10 +80,8 @@ const LoginCandidate = () => {
 
   return (
     <div className="candidate-login-page">
-
       {/* ================= LEFT SECTION ================= */}
       <section className="candidate-login-left-section">
-
         <div className="candidate-login-brand">
           AI Resume Builder and Screening system
         </div>
@@ -99,27 +96,18 @@ const LoginCandidate = () => {
           “Leadership is the capacity to translate vision into reality.” —
           Warren Bennis
         </div>
-
       </section>
 
       {/* ================= RIGHT SECTION ================= */}
       <section className="candidate-login-right-section">
-
         <div className="candidate-login-auth">
-
           {/* TITLE */}
-          <h1 className="candidate-login-title">
-            Login your account
-          </h1>
+          <h1 className="candidate-login-title">Login your account</h1>
 
           {/* ================= CANDIDATE / RECRUITER SWITCH ================= */}
           <div className="candidate-login-role-switch">
-
             {/* Candidate */}
-            <button
-              type="button"
-              className="candidate-login-role active"
-            >
+            <button type="button" className="candidate-login-role active">
               Candidate
             </button>
 
@@ -131,24 +119,15 @@ const LoginCandidate = () => {
             >
               Recruiter
             </button>
-
           </div>
 
           {/* ================= LOGIN FORM ================= */}
-          <form
-            className="candidate-login-form"
-            onSubmit={handleLogin}
-          >
-
+          <form className="candidate-login-form" onSubmit={handleLogin}>
             {/* ================= USER NAME ================= */}
             <div className="candidate-login-form-group">
-
-              <label htmlFor="username">
-                User Name
-              </label>
+              <label htmlFor="username">User Name</label>
 
               <div className="candidate-login-input-wrapper">
-
                 <img
                   src={emailIcon}
                   alt=""
@@ -164,20 +143,14 @@ const LoginCandidate = () => {
                   onChange={handleChange}
                   autoComplete="username"
                 />
-
               </div>
-
             </div>
 
             {/* ================= PASSWORD ================= */}
             <div className="candidate-login-form-group">
-
-              <label htmlFor="password">
-                Password
-              </label>
+              <label htmlFor="password">Password</label>
 
               <div className="candidate-login-input-wrapper">
-
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
@@ -193,38 +166,24 @@ const LoginCandidate = () => {
                 <button
                   type="button"
                   className="candidate-login-eye-button"
-                  onClick={() =>
-                    setShowPassword((prev) => !prev)
-                  }
+                  onClick={() => setShowPassword((prev) => !prev)}
                 >
                   <img
-                    src={
-                      showPassword
-                        ? closeEyeIcon
-                        : openEyeIcon
-                    }
-                    alt={
-                      showPassword
-                        ? "Hide password"
-                        : "Show password"
-                    }
+                    src={showPassword ? closeEyeIcon : openEyeIcon}
+                    alt={showPassword ? "Hide password" : "Show password"}
                   />
                 </button>
-
               </div>
-
             </div>
 
             {/* ================= REMEMBER / FORGOT ================= */}
             <div className="candidate-login-options">
-
               {/* Remember Me */}
               <button
                 type="button"
                 className="candidate-login-remember"
                 onClick={handleRememberMe}
               >
-
                 <span
                   className={`candidate-login-checkbox ${
                     rememberMe ? "checked" : ""
@@ -233,10 +192,7 @@ const LoginCandidate = () => {
                   {rememberMe && "✓"}
                 </span>
 
-                <span>
-                  Remember me
-                </span>
-
+                <span>Remember me</span>
               </button>
 
               {/* Forgot Password */}
@@ -247,78 +203,46 @@ const LoginCandidate = () => {
               >
                 Forget Password?
               </a>
-
             </div>
 
             {/* ================= CONTINUE ================= */}
-            <button
-              type="submit"
-              className="candidate-login-continue"
-            >
+            <button type="submit" className="candidate-login-continue">
               Continue
             </button>
-
           </form>
 
           {/* ================= OR DIVIDER ================= */}
           <div className="candidate-login-divider">
-
             <span></span>
 
             <p>OR</p>
 
             <span></span>
-
           </div>
 
           {/* ================= SOCIAL LOGIN ================= */}
-          <div className="candidate-login-social-heading">
-            CONTINUE WITH
-          </div>
+          <div className="candidate-login-social-heading">CONTINUE WITH</div>
 
           <div className="candidate-login-social">
-
             {/* Google */}
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-            >
-              <img
-                src={googleIcon}
-                alt="Google"
-              />
+            <button type="button" onClick={handleGoogleLogin}>
+              <img src={googleIcon} alt="Google" />
             </button>
 
             {/* LinkedIn */}
-            <button
-              type="button"
-              onClick={handleLinkedInLogin}
-            >
-              <img
-                src={linkedinIcon}
-                alt="LinkedIn"
-              />
+            <button type="button" onClick={handleLinkedInLogin}>
+              <img src={linkedinIcon} alt="LinkedIn" />
             </button>
-
           </div>
 
           {/* ================= CREATE ACCOUNT ================= */}
           <div className="candidate-login-account">
+            <span>Need help &</span>
 
-            <span>
-              Need help &
-            </span>
-
-            <a href="/register">
-              Create account
-            </a>
-
+            <a href="/register">Create account</a>
           </div>
-
         </div>
-
       </section>
-
     </div>
   );
 };

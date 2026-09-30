@@ -5,10 +5,12 @@ import LandingPage from "./Components-landingpage/Landingpage";
 import ForgotPassword from "./Components-Candidate-login/ForgotPassword";
 import IncorrectPassword from "./Components-Candidate-login/IncorrectPassword";
 import VerifyEmail from "./Components-Recruiter-login/Verifymail";
-import OTPVerification from "./Components-Recruiter-login/OTPVerification";  
+import OTPVerification from "./Components-Recruiter-login/OTPVerification";
 import EmailVerification from "./Components-Candidate-login/EmailVerification";
 import CanOtpVerification from "./Components-Candidate-login/CanOtpVerification";
-import CreatePassword from "./Components-Candidate-login/Createpassword";
+import CancreatePassword from "./Components-Candidate-login/Createpassword";
+import CreatePassword from "./Components-Recruiter-login/CreatePassword";
+import ForgotPswd from "./Components-Recruiter-login/ForgotPswd";
 
 // Admin Login page
 import AdminLogin from "./Components-Admin/Loginpage";
@@ -16,13 +18,12 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         {/* Landing Page */}
         <Route path="/" element={<LandingPage />} />
-       {/* Login-page */}
-       <Route path="Loginpage"element={<Loginpage />}/>
+        {/* Login-page */}
+        <Route path="Loginpage" element={<Loginpage />} />
         {/* Recruiter -Login-page */}
-        <Route path="Recruiter-login"element={<LoginRecruiter/>}/>
+        <Route path="Recruiter-login" element={<LoginRecruiter />} />
         {/* Forgot Password Page */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         {/* Incorrect Password Page */}
@@ -34,20 +35,22 @@ function App() {
         {/* Email Verification Page */}
         <Route path="/email-verification" element={<EmailVerification />} />
         {/* Candidate OTP Verification Page */}
-        <Route path="/candidate-otp-verification" element={<CanOtpVerification />} />
+        <Route
+          path="/candidate-otp-verification"
+          element={<CanOtpVerification />}
+        />
         {/* Create Password Page */}
-        <Route path="/create-password" element={<CreatePassword />} />
-        
+        <Route path="/create-password" element={<CancreatePassword />} />
+        {/*Recruiter Forgot Password*/}
+        <Route path="/rec-forgot-password" element={<ForgotPswd />} />
+        {/* Rec Create Password Page */}
+        <Route path="/rec-create-password" element={<CreatePassword />} />
+
         {/* Admin Login Page */}
         <Route path="/admin-login" element={<AdminLogin />} />
       </Routes>
     </BrowserRouter>
   );
 }
-
-
-
-
-
 
 export default App;
