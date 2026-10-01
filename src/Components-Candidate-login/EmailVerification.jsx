@@ -57,20 +57,20 @@ const EmailVerification = () => {
       return;
     }
 
+    setError("");
+
     if (enteredOtp === DEFAULT_OTP) {
-      setError("");
-      navigate();
+      navigate("/your-next-page"); // TODO: correct OTP ku poga vendiya route
     } else {
-      setError(" Invalid OTP. Please check and try again.");
       navigate("/candidate-otp-verification");
     }
   };
 
   const handleResend = () => {
     setOtp(new Array(6).fill(""));
-    setSeconds(40);
     setError("");
     inputRefs.current[0]?.focus();
+    // TODO: resend OTP API call inga podalam
   };
 
   return (

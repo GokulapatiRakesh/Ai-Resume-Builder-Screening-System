@@ -37,9 +37,7 @@ const IncorrectPassword = () => {
           </p>
 
           <h1 className="can-ip-left-heading">
-            Create professional, ATS-friendly
-            <br />
-            resumes in minutes with Ai
+            Create professional, ATS-friendly resumes in minutes with Ai
           </h1>
 
           <div className="can-ip-illustration-wrap">

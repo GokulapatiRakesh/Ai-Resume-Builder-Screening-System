@@ -5,14 +5,13 @@ import "./OTPVerification.css";
 
 import blueCircle from "../assets/blurcircle-img.png";
 import leftImage from "../assets/IncorrectOtp-left-img.png";
-import quoteImage from "../assets/IncorrectOtp-quote.png";
 import invalidOtpImage from "../assets/InvalidOtp-img.png";
 import lockIcon from "../assets/lock-icon.png";
 import backArrow from "../assets/arrow.png";
 
 const CORRECT_OTP = "829749";
 
-const IncorrectOtp = () => {
+const OTPVerification = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,189 +23,124 @@ const IncorrectOtp = () => {
   );
 
   const [otp, setOtp] = useState(initialOtp);
-
   const [showInvalid, setShowInvalid] = useState(previousOtp.length === 6);
-
   const [successMessage, setSuccessMessage] = useState("");
 
-  /* =========================================
-     OTP INPUT
-  ========================================= */
-
   const handleChange = (value, index) => {
-    /*
-      Only numbers
-    */
-
     if (!/^\d?$/.test(value)) {
       return;
     }
 
     const newOtp = [...otp];
-
     newOtp[index] = value;
 
     setOtp(newOtp);
-
-    /*
-      Remove messages while user is editing
-    */
-
     setShowInvalid(false);
     setSuccessMessage("");
 
-    /*
-      Automatically move to next box
-    */
-
     if (value && index < 5) {
-      document.getElementById(`incorrect-otp-${index + 1}`)?.focus();
+      document.getElementById(`otp-verification-${index + 1}`)?.focus();
     }
   };
-
-  /* =========================================
-     BACKSPACE
-  ========================================= */
 
   const handleKeyDown = (event, index) => {
     if (event.key === "Backspace" && !otp[index] && index > 0) {
-      document.getElementById(`OTPVerification-${index - 1}`)?.focus();
+      document.getElementById(`otp-verification-${index - 1}`)?.focus();
     }
   };
-
-  /* =========================================
-     VERIFY OTP
-  ========================================= */
 
   const handleVerify = () => {
     const enteredOtp = otp.join("");
 
-    /*
-      Must enter all 6 digits
-    */
-
     if (enteredOtp.length !== 6) {
       setSuccessMessage("");
-
       setShowInvalid(true);
-
       return;
     }
-
-    /*
-      CORRECT OTP
-      508213
-    */
 
     if (enteredOtp === CORRECT_OTP) {
       setShowInvalid(false);
-
       setSuccessMessage("OTP verified successfully!");
-
       return;
     }
 
-    /*
-      WRONG OTP
-    */
-
     setSuccessMessage("");
-
     setShowInvalid(true);
   };
-
-  /* =========================================
-     RESEND OTP
-  ========================================= */
 
   const handleResendOtp = () => {
     navigate("/login/recruiter/verifyemail");
   };
 
-  /* =========================================
-     BACK TO LOGIN
-  ========================================= */
-
   const handleBackToLogin = () => {
-    navigate("/Recruiter-login");
+    navigate("Recruiter-login");
   };
 
   return (
-    <main className="incorrect-page">
-      {/* =====================================
-          LEFT SIDE
-      ===================================== */}
-
-      <section className="incorrect-left">
-        <div className="incorrect-left-content">
-          <p className="incorrect-brand-title">
+    <main className="otp-verification-page">
+      {/* LEFT SIDE */}
+      <section className="otp-verification-left">
+        <div className="otp-verification-left-content">
+          <p className="otp-brand-title">
             AI Resume Builder and Screening system
           </p>
 
-          <h1>
+          <h1 className="otp-hero-title">
             Recruitment, Reimagined with AI
             <br />
             Screen candidates faster.
           </h1>
 
-          <div className="incorrect-illustration-wrapper">
+          <div className="otp-illustration-wrapper">
             <img
               src={leftImage}
               alt="Recruitment illustration"
-              className="incorrect-left-illustration"
+              className="otp-left-illustration"
             />
           </div>
 
-          <img
-            src={quoteImage}
-            alt="Success quote"
-            className="incorrect-quote-image"
-          />
+          {/* QUOTE AS CODE/TEXT - NOT AN IMAGE */}
+          <div className="otp-quote">
+            <p className="otp-quote-text">
+              “Coming together is a beginning. Keeping together is progress.
+              Working together is success.”
+            </p>
+
+            <p className="otp-quote-author">— Henry Ford</p>
+          </div>
         </div>
       </section>
 
-      {/* =====================================
-          RIGHT SIDE
-      ===================================== */}
+      {/* RIGHT SIDE */}
+      <section className="otp-verification-right">
+        <div className="otp-verification-card">
+          {/* LOCK ICON */}
+          <div className="otp-lock-wrapper">
+            <img src={blueCircle} alt="" className="otp-blue-circle" />
 
-      <section className="incorrect-right">
-        <div className="incorrect-card">
-          {/* =================================
-              BLUE CIRCLE + LOCK
-          ================================= */}
-
-          <div className="incorrect-lock-wrapper">
-            <img src={blueCircle} alt="" className="incorrect-blue-circle" />
-
-            <img src={lockIcon} alt="Lock" className="incorrect-lock-icon" />
+            <img src={lockIcon} alt="Lock" className="otp-lock-icon" />
           </div>
 
-          {/* =================================
-              ERROR / INFO MESSAGE
-          ================================= */}
-
-          <p className="incorrect-main-message">
+          {/* MESSAGE */}
+          <p className="otp-main-message">
             The OTP you entered is incorrect
             <br />
             Please try again.
           </p>
 
-          {/* =================================
-              SIX OTP BOXES
-          ================================= */}
-
+          {/* OTP INPUTS */}
           <div
-            className={`incorrect-otp-container ${
+            className={`otp-input-container ${
               showInvalid ? "otp-invalid" : ""
             }`}
           >
             {otp.map((digit, index) => (
               <input
                 key={index}
-                id={`incorrect-otp-${index}`}
+                id={`otp-verification-${index}`}
                 type="text"
                 inputMode="numeric"
-                maxLength="1"
+                maxLength={1}
                 value={digit}
                 onChange={(event) => handleChange(event.target.value, index)}
                 onKeyDown={(event) => handleKeyDown(event, index)}
@@ -216,31 +150,22 @@ const IncorrectOtp = () => {
             ))}
           </div>
 
-          {/* =================================
-              SUCCESS MESSAGE
-          ================================= */}
-
+          {/* SUCCESS MESSAGE */}
           {successMessage && (
-            <p className="incorrect-success-message">✓ {successMessage}</p>
+            <p className="otp-success-message">✓ {successMessage}</p>
           )}
 
-          {/* =================================
-              INVALID MESSAGE
-          ================================= */}
-
+          {/* INVALID MESSAGE */}
           {showInvalid && !successMessage && (
-            <div className="invalid-otp-message">
-              <img src={invalidOtpImage} alt="" className="invalid-otp-icon" />
+            <div className="otp-invalid-message">
+              <img src={invalidOtpImage} alt="" className="otp-invalid-icon" />
 
               <span>Invalid OTP. Please check and try again.</span>
             </div>
           )}
 
-          {/* =================================
-              RESEND OTP
-          ================================= */}
-
-          <div className="incorrect-resend-row">
+          {/* RESEND OTP */}
+          <div className="otp-resend-row">
             <span>Re-send OTP?</span>
 
             <button type="button" onClick={handleResendOtp}>
@@ -248,26 +173,20 @@ const IncorrectOtp = () => {
             </button>
           </div>
 
-          {/* =================================
-              VERIFY BUTTON
-          ================================= */}
-
+          {/* VERIFY */}
           <button
             type="button"
-            className="incorrect-verify-button"
+            className="otp-verify-button"
             onClick={handleVerify}
           >
             Verify &amp; Continue
           </button>
 
-          {/* =================================
-              BACK TO LOGIN
-          ================================= */}
-
+          {/* BACK TO LOGIN */}
           <button
             type="button"
-            className="incorrect-back-login"
-            onClick={handleBackToLogin}
+            className="otp-back-login"
+            onClick={() => navigate("/Recruiter-login")}
           >
             <img src={backArrow} alt="" />
 
@@ -279,4 +198,4 @@ const IncorrectOtp = () => {
   );
 };
 
-export default IncorrectOtp;
+export default OTPVerification;

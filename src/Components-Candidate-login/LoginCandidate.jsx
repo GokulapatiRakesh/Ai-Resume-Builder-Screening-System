@@ -20,7 +20,6 @@ const LoginCandidate = () => {
     password: "",
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -30,88 +29,72 @@ const LoginCandidate = () => {
     }));
   };
 
-  // Handle candidate login
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Username validation
     if (!loginData.username.trim()) {
       alert("Please enter your User Name.");
       return;
     }
 
-    // Password validation
     if (!loginData.password) {
       alert("Please enter your Password.");
       return;
     }
 
-    // Login successful
-
-    // Navigate to Email verification page
     navigate("/email-verification");
   };
 
-  // Google login
   const handleGoogleLogin = () => {
     alert("Google login will be connected here.");
   };
 
-  // LinkedIn login
   const handleLinkedInLogin = () => {
     alert("LinkedIn login will be connected here.");
   };
 
-  // Navigate to recruiter login
   const handleRecruiter = () => {
     navigate("/Recruiter-login");
   };
 
-  // Navigate to forgot password
   const handleForgotPassword = (e) => {
     e.preventDefault();
     navigate("/forgot-password");
   };
 
-  // Toggle remember me
-  const handleRememberMe = () => {
-    setRememberMe((prev) => !prev);
-  };
-
   return (
     <div className="candidate-login-page">
-      {/* ================= LEFT SECTION ================= */}
+      {/* LEFT SECTION */}
       <section className="candidate-login-left-section">
-        <div className="candidate-login-brand">
-          AI Resume Builder and Screening system
-        </div>
+        <div className="candidate-login-left-content">
+          <div className="candidate-login-brand">
+            AI Resume Builder and Screening system
+          </div>
 
-        <img
-          src={loginLeft}
-          alt="AI Resume Builder"
-          className="candidate-login-illustration"
-        />
+          <img
+            src={loginLeft}
+            alt="AI Resume Builder"
+            className="candidate-login-illustration"
+          />
 
-        <div className="candidate-login-quote-box">
-          “Leadership is the capacity to translate vision into reality.” —
-          Warren Bennis
+          <div className="candidate-login-quote-box">
+            “Leadership is the capacity to translate vision into reality.”—
+            Warren Bennis
+          </div>
         </div>
       </section>
 
-      {/* ================= RIGHT SECTION ================= */}
+      {/* RIGHT SECTION */}
       <section className="candidate-login-right-section">
         <div className="candidate-login-auth">
-          {/* TITLE */}
           <h1 className="candidate-login-title">Login your account</h1>
 
-          {/* ================= CANDIDATE / RECRUITER SWITCH ================= */}
+          {/* CANDIDATE / RECRUITER SWITCH */}
           <div className="candidate-login-role-switch">
-            {/* Candidate */}
             <button type="button" className="candidate-login-role active">
               Candidate
             </button>
 
-            {/* Recruiter */}
             <button
               type="button"
               className="candidate-login-role"
@@ -121,9 +104,9 @@ const LoginCandidate = () => {
             </button>
           </div>
 
-          {/* ================= LOGIN FORM ================= */}
+          {/* LOGIN FORM */}
           <form className="candidate-login-form" onSubmit={handleLogin}>
-            {/* ================= USER NAME ================= */}
+            {/* USER NAME */}
             <div className="candidate-login-form-group">
               <label htmlFor="username">User Name</label>
 
@@ -146,7 +129,7 @@ const LoginCandidate = () => {
               </div>
             </div>
 
-            {/* ================= PASSWORD ================= */}
+            {/* PASSWORD */}
             <div className="candidate-login-form-group">
               <label htmlFor="password">Password</label>
 
@@ -162,27 +145,22 @@ const LoginCandidate = () => {
                   className="candidate-login-password-input"
                 />
 
-                {/* Password visibility */}
                 <button
                   type="button"
                   className="candidate-login-eye-button"
                   onClick={() => setShowPassword((prev) => !prev)}
                 >
-                  <img
-                    src={showPassword ? closeEyeIcon : openEyeIcon}
-                    alt={showPassword ? "Hide password" : "Show password"}
-                  />
+                  <img src={showPassword ? closeEyeIcon : openEyeIcon} alt="" />
                 </button>
               </div>
             </div>
 
-            {/* ================= REMEMBER / FORGOT ================= */}
+            {/* REMEMBER / FORGOT */}
             <div className="candidate-login-options">
-              {/* Remember Me */}
               <button
                 type="button"
                 className="candidate-login-remember"
-                onClick={handleRememberMe}
+                onClick={() => setRememberMe((prev) => !prev)}
               >
                 <span
                   className={`candidate-login-checkbox ${
@@ -195,7 +173,6 @@ const LoginCandidate = () => {
                 <span>Remember me</span>
               </button>
 
-              {/* Forgot Password */}
               <a
                 href="/forgot-password"
                 onClick={handleForgotPassword}
@@ -205,40 +182,35 @@ const LoginCandidate = () => {
               </a>
             </div>
 
-            {/* ================= CONTINUE ================= */}
+            {/* CONTINUE */}
             <button type="submit" className="candidate-login-continue">
               Continue
             </button>
           </form>
 
-          {/* ================= OR DIVIDER ================= */}
+          {/* OR */}
           <div className="candidate-login-divider">
             <span></span>
-
             <p>OR</p>
-
             <span></span>
           </div>
 
-          {/* ================= SOCIAL LOGIN ================= */}
+          {/* SOCIAL LOGIN */}
           <div className="candidate-login-social-heading">CONTINUE WITH</div>
 
           <div className="candidate-login-social">
-            {/* Google */}
             <button type="button" onClick={handleGoogleLogin}>
               <img src={googleIcon} alt="Google" />
             </button>
 
-            {/* LinkedIn */}
             <button type="button" onClick={handleLinkedInLogin}>
               <img src={linkedinIcon} alt="LinkedIn" />
             </button>
           </div>
 
-          {/* ================= CREATE ACCOUNT ================= */}
+          {/* ACCOUNT */}
           <div className="candidate-login-account">
             <span>Need help &</span>
-
             <a href="/register">Create account</a>
           </div>
         </div>

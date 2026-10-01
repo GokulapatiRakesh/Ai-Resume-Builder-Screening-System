@@ -13,18 +13,24 @@ const INITIAL_TIME = 40;
 const VerifyEmail = () => {
   const navigate = useNavigate();
 
+  /* =========================================================
+     STATE
+     ========================================================= */
+
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
 
-  // IMPORTANT: timer starts at 0
-  const [timeLeft, setTimeLeft] = useState(0);
+  // Timer starts at 0.
+  // It will start only after the user clicks "resend OTP".
+  const [timeLeft, setTimeLeft] = useState(INITIAL_TIME);
 
   const [successMessage, setSuccessMessage] = useState("");
 
-  /* =========================================
+  /* =========================================================
      TIMER
-  ========================================= */
+     ========================================================= */
 
   useEffect(() => {
+    // Do not start the timer automatically.
     if (timeLeft <= 0) {
       return;
     }
@@ -40,12 +46,14 @@ const VerifyEmail = () => {
       });
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+    };
   }, [timeLeft]);
 
-  /* =========================================
+  /* =========================================================
      FORMAT TIMER
-  ========================================= */
+     ========================================================= */
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
@@ -56,11 +64,12 @@ const VerifyEmail = () => {
     ).padStart(2, "0")}`;
   };
 
-  /* =========================================
+  /* =========================================================
      OTP INPUT
-  ========================================= */
+     ========================================================= */
 
   const handleChange = (value, index) => {
+    // Allow only one digit
     if (!/^\d?$/.test(value)) {
       return;
     }
@@ -71,16 +80,18 @@ const VerifyEmail = () => {
 
     setOtp(newOtp);
 
+    // Clear success message when OTP changes
     setSuccessMessage("");
 
+    // Move to next OTP input
     if (value && index < otp.length - 1) {
       document.getElementById(`otp-${index + 1}`)?.focus();
     }
   };
 
-  /* =========================================
-     BACKSPACE
-  ========================================= */
+  /* =========================================================
+     OTP BACKSPACE
+     ========================================================= */
 
   const handleKeyDown = (event, index) => {
     if (event.key === "Backspace" && !otp[index] && index > 0) {
@@ -88,29 +99,28 @@ const VerifyEmail = () => {
     }
   };
 
-  /* =========================================
+  /* =========================================================
      VERIFY OTP
-  ========================================= */
+     ========================================================= */
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const enteredOtp = otp.join("");
 
+    // Check whether all six digits are entered
     if (enteredOtp.length !== 6) {
       alert("Please enter the complete 6-digit OTP.");
       return;
     }
 
-    /* CORRECT OTP */
-
+    // Correct OTP
     if (enteredOtp === CORRECT_OTP) {
       setSuccessMessage("OTP verified successfully!");
       return;
     }
 
-    /* WRONG OTP */
-
+    // Incorrect OTP
     navigate("/otp-verification", {
       state: {
         enteredOtp: enteredOtp,
@@ -118,54 +128,66 @@ const VerifyEmail = () => {
     });
   };
 
-  /* =========================================
+  /* =========================================================
      RESEND OTP
-  ========================================= */
+     ========================================================= */
 
   const handleResendOtp = () => {
-    // If timer is already running
+    // Do not allow resend while timer is running
     if (timeLeft > 0) {
       return;
     }
 
-    // User sees popup first
     alert("A new OTP has been sent to your email.");
 
-    // Clear previous OTP
+    // Clear old OTP
     setOtp(["", "", "", "", "", ""]);
 
+    // Clear success message
     setSuccessMessage("");
 
-    // Start timer ONLY after clicking resend
+    // Start timer ONLY after clicking "resend OTP"
     setTimeLeft(INITIAL_TIME);
 
-    // Focus first OTP box
+    // Focus first OTP input
     setTimeout(() => {
       document.getElementById("otp-0")?.focus();
     }, 100);
   };
 
-  /* =========================================
+  /* =========================================================
      BACK TO LOGIN
-  ========================================= */
+     ========================================================= */
 
   const handleBackToLogin = () => {
     navigate("/Recruiter-login");
   };
 
+  /* =========================================================
+     PAGE
+     ========================================================= */
+
   return (
     <main className="verify-page">
-      {/* LEFT SIDE */}
+      {/* =====================================================
+          LEFT SIDE
+          ===================================================== */}
 
       <section className="verify-left">
         <div className="left-content">
+          {/* BRAND TITLE */}
+
           <p className="brand-title">AI Resume Builder and Screening system</p>
+
+          {/* MAIN HEADING */}
 
           <h1>
             Recruitment, Reimagined with AI
             <br />
             Screen candidates faster.
           </h1>
+
+          {/* ILLUSTRATION */}
 
           <div className="illustration-wrapper">
             <img
@@ -175,15 +197,23 @@ const VerifyEmail = () => {
             />
           </div>
 
+          {/* QUOTE */}
+
           <img src={quoteImage} alt="Success quote" className="quote-image" />
         </div>
       </section>
 
-      {/* RIGHT SIDE */}
+      {/* =====================================================
+          RIGHT SIDE
+          ===================================================== */}
 
       <section className="verify-right">
         <div className="verify-card">
+          {/* VERIFY TITLE */}
+
           <h2>Verify Your Mail</h2>
+
+          {/* DESCRIPTION */}
 
           <p className="verify-description">
             We've sent a 6-digit OTP to
@@ -193,7 +223,13 @@ const VerifyEmail = () => {
             Enter the code below to continue
           </p>
 
+          {/* =================================================
+              OTP FORM
+              ================================================= */}
+
           <form onSubmit={handleSubmit}>
+            {/* OTP INPUTS */}
+
             <div className="otp-container">
               {otp.map((digit, index) => (
                 <input
@@ -201,22 +237,27 @@ const VerifyEmail = () => {
                   id={`otp-${index}`}
                   type="text"
                   inputMode="numeric"
-                  maxLength="1"
+                  maxLength={1}
                   value={digit}
                   onChange={(event) => handleChange(event.target.value, index)}
                   onKeyDown={(event) => handleKeyDown(event, index)}
                   autoComplete={index === 0 ? "one-time-code" : "off"}
+                  aria-label={`OTP digit ${index + 1}`}
                 />
               ))}
             </div>
 
-            {/* SUCCESS MESSAGE */}
+            {/* =================================================
+                SUCCESS MESSAGE
+                ================================================= */}
 
             {successMessage && (
               <p className="success-message">✓ {successMessage}</p>
             )}
 
-            {/* RESEND OTP */}
+            {/* =================================================
+                RESEND OTP
+                ================================================= */}
 
             <p className="resend-text">
               Didn't receive the code?{" "}
@@ -231,14 +272,18 @@ const VerifyEmail = () => {
               {timeLeft > 0 && <span>({formatTime(timeLeft)})</span>}
             </p>
 
-            {/* VERIFY */}
+            {/* =================================================
+                VERIFY BUTTON
+                ================================================= */}
 
             <button type="submit" className="verify-button">
               Verify&nbsp; &amp; continue
             </button>
           </form>
 
-          {/* BACK TO LOGIN */}
+          {/* =================================================
+              BACK TO LOGIN
+              ================================================= */}
 
           <button
             type="button"

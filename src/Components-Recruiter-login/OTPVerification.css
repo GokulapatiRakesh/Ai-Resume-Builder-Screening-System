@@ -1,42 +1,44 @@
-/* =========================================
-   MAIN PAGE
-========================================= */
- 
-.incorrect-page {
-  position: fixed;
-  inset: 0;
+/* =========================================================
+   OTP VERIFICATION PAGE
+   ========================================================= */
+
+.otp-verification-page {
   width: 100%;
   height: 100vh;
   height: 100dvh;
- 
+
   display: flex;
- 
+  flex-direction: row;
+
   overflow: hidden;
- 
+
   background: #ffffff;
+
   font-family: Arial, Helvetica, sans-serif;
+
   box-sizing: border-box;
 }
- 
-.incorrect-page * {
-  box-sizing: inherit;
+
+.otp-verification-page *,
+.otp-verification-page *::before,
+.otp-verification-page *::after {
+  box-sizing: border-box;
 }
- 
- 
-/* =========================================
+
+/* =========================================================
    LEFT SIDE
-========================================= */
- 
-.incorrect-left {
+   ========================================================= */
+
+.otp-verification-left {
   width: 50%;
   height: 100%;
- 
+
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
   overflow: hidden;
- 
+
   background: linear-gradient(
     90deg,
     #566b94 0%,
@@ -47,764 +49,1111 @@
     #ffffff 100%
   );
 }
- 
-.incorrect-left-content {
-  width: 82%;
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.otp-verification-left-content {
+  --desktop-heading-offset: clamp(40px, 4.8vw, 92px);
+
+  width: min(82%, 620px);
   height: 100%;
- 
+
   display: flex;
   flex-direction: column;
- 
+
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
- 
-  padding: clamp(10px, 2vh, 24px) 0;
- 
+
+  padding: 35px 0;
+
   overflow: hidden;
 }
- 
- 
-/* =========================================
-   LEFT BRAND TITLE
-========================================= */
- 
-.incorrect-brand-title {
-  width: 100%;
- 
-  margin: 0 0 clamp(8px, 1.5vh, 18px);
- 
+
+/* =========================================================
+   BRAND TITLE
+   ========================================================= */
+
+.otp-brand-title {
+  width: calc(100% - var(--desktop-heading-offset));
+
+  margin: 0 0 12px var(--desktop-heading-offset);
+
   color: #ffffff;
- 
-  font-size: clamp(11px, 1vw, 16px);
- 
+
+  font-size: clamp(12px, 1vw, 16px);
   font-weight: 700;
- 
-  line-height: 1.2;
- 
+
+  line-height: 1.25;
+
   text-align: left;
- 
-  transform: translateY(45px);
- 
+
   flex-shrink: 0;
 }
- 
- 
-/* =========================================
-   LEFT HEADING
-========================================= */
- 
-.incorrect-left-content h1 {
-  width: 100%;
- 
-  margin: 0 0 clamp(8px, 1.5vh, 18px);
- 
+
+/* =========================================================
+   MAIN HEADING
+   ========================================================= */
+
+.otp-hero-title {
+  width: calc(100% - var(--desktop-heading-offset));
+
+  margin: 0 0 0 var(--desktop-heading-offset);
+
   color: #f5f6f8;
- 
-  font-size: clamp(24px, 2.45vw, 38px);
- 
+
+  font-size: clamp(25px, 2.45vw, 38px);
   font-weight: 700;
- 
+
   line-height: 1.18;
- 
+
   text-align: left;
- 
-  transform: translateY(45px);
- 
+
   flex-shrink: 0;
 }
- 
- 
-/* =========================================
-   LEFT ILLUSTRATION
-========================================= */
- 
-.incorrect-illustration-wrapper {
+
+/* =========================================================
+   ILLUSTRATION
+   ========================================================= */
+
+.otp-illustration-wrapper {
   width: 100%;
- 
-  display: flex;
- 
-  justify-content: center;
- 
-  align-items: center;
- 
-  flex: 1 1 auto;
- 
+
+  flex: 1;
+
   min-height: 0;
- 
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
   overflow: hidden;
+
+  padding: 15px 0;
+
+  transform: translateX(8px);
 }
- 
-.incorrect-left-illustration {
+
+.otp-left-illustration {
   display: block;
- 
+
   width: auto;
- 
-  max-width: 100%;
- 
-  max-height: min(54vh, 520px);
- 
   height: auto;
- 
+
+  max-width: 92%;
+  max-height: 55vh;
+
   object-fit: contain;
+
+  transform: translateX(15px);
 }
- 
- 
-/* =========================================
-   LEFT QUOTE
-========================================= */
- 
-.incorrect-quote-image {
-  display: block;
- 
-  width: min(78%, 425px);
- 
-  height: auto;
- 
-  max-height: 6.5vh;
- 
-  margin: clamp(5px, 1vh, 12px) auto 0;
- 
-  object-fit: contain;
- 
-  transform: translateY(-55px);
- 
+
+/* =========================================================
+   QUOTE CARD (CORRECTED STRUCTURE)
+   ========================================================= */
+
+.otp-quote {
+  width: auto;
+  max-width: min(100%, 620px);
+
+  margin: 0 auto;
+
+  padding: 10px 18px;
+
+  background: #ffffff;
+
+  border-radius: 6px;
+
+  box-shadow: none;
+
   flex-shrink: 0;
+
+  text-align: left;
 }
- 
- 
-/* =========================================
+
+.otp-quote-text {
+  display: block;
+
+  margin: 0;
+
+  color: #17366f;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.35;
+
+  text-align: left;
+
+  white-space: normal;
+}
+
+.otp-quote-author {
+  display: block;
+
+  margin: 3px 0 0;
+
+  color: #17366f;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  line-height: 1.35;
+
+  text-align: left;
+}
+
+/* =========================================================
    RIGHT SIDE
-========================================= */
- 
-.incorrect-right {
+   ========================================================= */
+
+.otp-verification-right {
   width: 50%;
   height: 100%;
- 
+
   display: flex;
- 
+
   justify-content: center;
- 
   align-items: center;
- 
+
   overflow: hidden;
- 
+
   background: #ffffff;
 }
- 
- 
-/* =========================================
-   RIGHT CARD
-========================================= */
- 
-.incorrect-card {
-  width: min(78%, 470px);
- 
+
+/* =========================================================
+   RIGHT CARD & SHARED CONTENT WIDTHS
+   ========================================================= */
+
+.otp-verification-card {
+  --otp-content-width: 290px;
+  --otp-button-width: 340px;
+
+  width: 430px;
+  max-width: 88%;
+
   display: flex;
- 
   flex-direction: column;
- 
+
   align-items: center;
- 
+
   text-align: center;
+
+  transform: translate(-12px, -5px);
 }
- 
- 
-/* =========================================
-   BLUE CIRCLE
-========================================= */
- 
-.incorrect-lock-wrapper {
+
+.otp-input-container,
+.otp-invalid-message,
+.otp-resend-row {
+  width: var(--otp-content-width);
+
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* =========================================================
+   LOCK
+   ========================================================= */
+
+.otp-lock-wrapper {
   position: relative;
- 
-  width: 54px;
-  height: 54px;
- 
+
+  width: 64px;
+  height: 64px;
+
+  margin-bottom: 20px;
+
   display: flex;
- 
+
   justify-content: center;
- 
   align-items: center;
- 
-  margin-bottom: 25px;
+
+  flex-shrink: 0;
 }
- 
-.incorrect-blue-circle {
+
+.otp-blue-circle {
   position: absolute;
- 
-  width: 54px;
-  height: 54px;
- 
-  display: block;
- 
+
+  width: 100%;
+  height: 100%;
+
   object-fit: contain;
 }
- 
-.incorrect-lock-icon {
+
+.otp-lock-icon {
   position: relative;
- 
+
   z-index: 2;
- 
-  width: 17px;
-  height: 17px;
- 
-  display: block;
- 
+
+  width: 43%;
+  height: 43%;
+
   object-fit: contain;
 }
- 
- 
-/* =========================================
-   INCORRECT MESSAGE
-========================================= */
- 
-.incorrect-main-message {
-  margin: 0 0 15px;
- 
-  color: #111111;
- 
-  font-size: clamp(10px, 0.75vw, 12px);
- 
+
+/* =========================================================
+   MAIN OTP MESSAGE
+   ========================================================= */
+
+.otp-main-message {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 13px;
   font-weight: 600;
- 
+
   line-height: 1.35;
- 
+
   text-align: center;
 }
- 
- 
-/* =========================================
-   OTP BOXES
-========================================= */
- 
-.incorrect-otp-container {
+
+/* =========================================================
+   OTP INPUT CONTAINER
+   ========================================================= */
+
+.otp-input-container {
   display: flex;
- 
-  justify-content: center;
- 
+
+  justify-content: space-between;
   align-items: center;
- 
+
   gap: 10px;
- 
-  margin: 20px 0 14px;
+
+  margin-top: 17px;
+  margin-bottom: 9px;
 }
- 
-.incorrect-otp-container input {
+
+/* =========================================================
+   OTP INPUT BOX
+   ========================================================= */
+
+.otp-input-container input {
   width: 40px;
   height: 42px;
-  min-width: 40px;
-  max-width: 40px;
- 
+
+  flex: 0 0 40px;
+
   padding: 0;
- 
-  box-sizing: border-box;
- 
-  border: 1px solid #ed6b6b;
- 
+
+  border: 1px solid #ff6268;
+
   border-radius: 5px;
- 
-  outline: none;
- 
+
   background: #ffffff;
- 
-  color: #111111;
- 
-  text-align: center;
- 
+
+  color: #111827;
+
+  font-family: Arial, Helvetica, sans-serif;
+
   font-size: 18px;
- 
   font-weight: 400;
- 
+
+  text-align: center;
+
+  outline: none;
+
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
- 
- 
-/* =========================================
-   INVALID OTP MESSAGE
-========================================= */
- 
-.invalid-otp-message {
-  width: 100%;
- 
-  display: flex;
- 
-  justify-content: flex-start;
- 
-  align-items: center;
- 
-  gap: 7px;
- 
-  margin: 12px 0 15px;
- 
-  color: #ff6b6b;
- 
-  font-size: clamp(9px, 0.7vw, 11px);
- 
-  line-height: 1.3;
- 
-  text-align: left;
+
+.otp-input-container input:focus {
+  border-color: #17366f;
+
+  box-shadow: 0 0 0 1px #17366f;
 }
- 
-.invalid-otp-icon {
-  width: 13px;
-  height: 13px;
- 
-  flex-shrink: 0;
- 
-  object-fit: contain;
+
+.otp-input-container.otp-invalid input {
+  border-color: #ff6268;
 }
- 
- 
-/* =========================================
-   INVALID OTP BOXES
-========================================= */
- 
-.incorrect-otp-container.otp-invalid input {
-  border-color: #ed6b6b;
-  color: #111111;
-}
- 
- 
-/* =========================================
+
+/* =========================================================
    SUCCESS MESSAGE
-========================================= */
- 
-.incorrect-success-message {
-  width: 100%;
- 
-  margin: 12px 0 15px;
- 
-  color: #28a745;
- 
-  font-size: clamp(9px, 0.7vw, 11px);
- 
-  text-align: left;
+   ========================================================= */
+
+.otp-success-message {
+  margin: 3px 0 6px;
+
+  color: #22863a;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  text-align: center;
 }
- 
- 
-/* =========================================
-   RESEND OTP
-========================================= */
- 
-.incorrect-resend-row {
-  width: 100%;
- 
+
+/* =========================================================
+   INVALID OTP MESSAGE (SAME LEFT START LINE)
+   ========================================================= */
+
+.otp-invalid-message {
+  margin-top: 0;
+  margin-bottom: 0;
+
   display: flex;
- 
+
+  justify-content: flex-start;
   align-items: center;
- 
-  gap: 20px;
- 
-  margin: 0 0 15px;
- 
-  color: #222222;
- 
-  font-size: clamp(10px, 0.75vw, 12px);
- 
+
+  gap: 5px;
+
+  color: #ff6268;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1.35;
+
   text-align: left;
 }
- 
-.incorrect-resend-row button {
+
+.otp-invalid-icon {
+  width: 16px;
+  height: 16px;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   RESEND OTP (SAME LEFT START LINE)
+   ========================================================= */
+
+.otp-resend-row {
+  margin-top: 9px;
+  margin-bottom: 14px;
+
+  color: #263b62;
+
+  font-size: 10px;
+
+  line-height: 1.3;
+
+  text-align: left;
+}
+
+.otp-resend-row button {
+  margin-left: 2px;
+
   padding: 0;
- 
+
   border: 0;
- 
+
   background: transparent;
- 
-  color: #4285f4;
- 
-  font: inherit;
- 
+
+  color: #3c8bf2;
+
+  font-family: inherit;
+
+  font-size: inherit;
+
   cursor: pointer;
 }
- 
- 
-/* =========================================
-   VERIFY BUTTON
-========================================= */
- 
-.incorrect-verify-button {
-  width: 100%;
- 
-  height: clamp(40px, 5vh, 50px);
- 
+
+.otp-resend-row button:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   VERIFY BUTTON (WIDER THAN OTP CONTENT)
+   ========================================================= */
+
+.otp-verify-button {
+  width: var(--otp-button-width);
+  max-width: 100%;
+
+  height: 45px;
+
+  padding: 0;
+
   border: 0;
- 
+
   border-radius: 7px;
- 
+
   background: #152f62;
- 
+
   color: #ffffff;
- 
-  font-size: clamp(11px, 0.85vw, 14px);
- 
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 13px;
   font-weight: 600;
- 
+
   cursor: pointer;
- 
+
   transition: background 0.2s ease;
 }
- 
-.incorrect-verify-button:hover {
+
+.otp-verify-button:hover {
   background: #102650;
 }
- 
- 
-/* =========================================
+
+.otp-verify-button:focus-visible {
+  outline: 2px solid #4285f4;
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
    BACK TO LOGIN
-========================================= */
- 
-.incorrect-back-login {
+   ========================================================= */
+
+.otp-back-login {
   display: flex;
- 
+
   justify-content: center;
- 
   align-items: center;
- 
-  gap: 8px;
- 
-  margin-top: clamp(20px, 4vh, 38px);
- 
+
+  gap: 7px;
+
+  margin-top: 20px;
+
   padding: 0;
- 
+
   border: 0;
- 
+
   background: transparent;
- 
+
   color: #4285f4;
- 
-  font-size: clamp(9px, 0.7vw, 11px);
- 
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
   cursor: pointer;
 }
- 
-.incorrect-back-login img {
-  width: 11px;
-  height: 11px;
- 
+
+.otp-back-login:hover {
+  text-decoration: underline;
+}
+
+.otp-back-login img {
+  width: 10px;
+  height: 10px;
+
   object-fit: contain;
 }
- 
- 
-/* =========================================
-   LARGE DESKTOP
-========================================= */
- 
-@media (min-width: 1440px) {
- 
-  .incorrect-left-content {
-    width: 80%;
+
+/* =========================================================
+   TABLET (768px - 1100px)
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .otp-verification-left-content {
+    width: 84%;
   }
- 
-  .incorrect-left-illustration {
-    max-height: min(53vh, 560px);
+
+  .otp-brand-title {
+    font-size: 11px;
   }
- 
-  .incorrect-quote-image {
-    width: min(72%, 440px);
+
+  .otp-hero-title {
+    font-size: clamp(21px, 3vw, 30px);
   }
- 
-  .incorrect-card {
-    width: min(72%, 500px);
+
+  .otp-left-illustration {
+    max-width: 95%;
+    max-height: 50vh;
+  }
+
+  .otp-quote {
+    max-width: 90%;
+  }
+
+  .otp-verification-card {
+    width: 390px;
+    max-width: 88%;
+
+    transform: translate(-5px, -3px);
   }
 }
- 
- 
-/* =========================================
-   VERY LARGE DESKTOP
-========================================= */
- 
-@media (min-width: 1920px) {
- 
-  .incorrect-left-content {
-    width: 78%;
-  }
- 
-  .incorrect-brand-title {
-    font-size: 16px;
-  }
- 
-  .incorrect-left-content h1 {
-    font-size: 38px;
-  }
- 
-  .incorrect-left-illustration {
-    max-height: 54vh;
-  }
- 
-  .incorrect-quote-image {
-    max-width: 450px;
-  }
- 
-  .incorrect-success-message {
-    width: 100%;
- 
-    margin: 12px 0 15px;
- 
-    color: #28a745;
- 
-    font-size: clamp(9px, 0.7vw, 11px);
- 
-    text-align: left;
-  }
- 
-}
- 
- 
-/* =========================================
-   SHORT DESKTOP / LAPTOP
-========================================= */
- 
+
+/* =========================================================
+   SHORT DESKTOP
+   ========================================================= */
+
 @media (min-width: 768px) and (max-height: 800px) {
- 
-  .incorrect-left-content {
+  .otp-verification-left-content {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .otp-brand-title {
+    margin-bottom: 8px;
+  }
+
+  .otp-hero-title {
+    font-size: clamp(22px, 2.3vw, 32px);
+  }
+
+  .otp-illustration-wrapper {
+    padding: 8px 0;
+  }
+
+  .otp-left-illustration {
+    max-height: 49vh;
+  }
+
+  .otp-quote {
+    max-height: 70px;
+
     padding-top: 8px;
     padding-bottom: 8px;
   }
- 
-  .incorrect-brand-title {
+
+  .otp-verification-card {
+    transform: translate(-8px, -3px);
+  }
+
+  .otp-lock-wrapper {
+    width: 60px;
+    height: 60px;
+
+    margin-bottom: 20px;
+  }
+
+  .otp-main-message {
+    font-size: 12px;
+  }
+
+  .otp-input-container {
+    margin-top: 16px;
     margin-bottom: 8px;
   }
- 
-  .incorrect-left-content h1 {
-    margin-bottom: 8px;
- 
-    font-size: clamp(22px, 2.3vw, 32px);
+
+  .otp-input-container input {
+    width: 40px;
+    height: 42px;
+
+    flex-basis: 40px;
   }
- 
-  .incorrect-left-illustration {
-    max-height: 50vh;
+
+  .otp-invalid-message {
+    font-size: 10px;
   }
- 
-  .incorrect-quote-image {
-    max-height: 6vh;
- 
-    margin-top: 5px;
+
+  .otp-resend-row {
+    margin-top: 8px;
+    margin-bottom: 13px;
+
+    font-size: 10px;
   }
- 
-  .incorrect-lock-wrapper {
+
+  .otp-verify-button {
+    height: 45px;
+
+    font-size: 13px;
+  }
+
+  .otp-back-login {
+    margin-top: 19px;
+
+    font-size: 10px;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP (1440px)
+   ========================================================= */
+
+@media (min-width: 1440px) {
+  .otp-verification-left-content {
+    width: min(80%, 650px);
+  }
+
+  .otp-left-illustration {
+    max-height: 56vh;
+  }
+
+  .otp-quote {
+    max-width: 650px;
+  }
+
+  .otp-verification-card {
+    --otp-content-width: 348px;
+    --otp-button-width: 400px;
+
+    width: 520px;
+  }
+
+  .otp-lock-wrapper {
+    width: 80px;
+    height: 80px;
+
+    margin-bottom: 24px;
+  }
+
+  .otp-main-message {
+    font-size: 16px;
+  }
+
+  .otp-input-container {
+    margin-top: 22px;
+    margin-bottom: 12px;
+
+    gap: 12px;
+  }
+
+  .otp-input-container input {
+    width: 48px;
+    height: 50px;
+
+    flex: 0 0 48px;
+
+    font-size: 22px;
+  }
+
+  .otp-invalid-message {
+    font-size: 12px;
+  }
+
+  .otp-resend-row {
+    margin-top: 12px;
     margin-bottom: 18px;
+
+    font-size: 12px;
   }
- 
-  .incorrect-back-login {
-    margin-top: 20px;
+
+  .otp-verify-button {
+    height: 52px;
+
+    font-size: 15px;
   }
-}
- 
- 
-/* =========================================
-   TABLET
-========================================= */
- 
-@media (min-width: 768px) and (max-width: 1024px) {
- 
-  .incorrect-left-content {
-    width: 84%;
+
+  .otp-back-login {
+    margin-top: 24px;
+
+    font-size: 12px;
   }
- 
-  .incorrect-brand-title {
-    font-size: 11px;
-  }
- 
-  .incorrect-left-content h1 {
-    font-size: clamp(20px, 3vw, 29px);
-  }
- 
-  .incorrect-left-illustration {
-    max-height: 50vh;
-  }
- 
-  .incorrect-quote-image {
-    width: 85%;
- 
-    max-height: 6vh;
-  }
- 
-  .incorrect-card {
-    width: 82%;
-  }
- 
-  .incorrect-verify-button {
-    height: 43px;
-  }
-}
- 
- 
-/* =========================================
-   MOBILE
-========================================= */
- 
-@media (max-width: 767px) {
- 
-  .incorrect-page {
-    flex-direction: column;
-  }
- 
-  /* Show top banner with top-to-bottom blue gradient and 42dvh height */
-  .incorrect-left {
-    display: flex;
-    width: 100%;
-    height: 42vh;
-    height: 42dvh;
-    background: linear-gradient(
-      180deg,
-      #566b94 0%,
-      #6f81a4 35%,
-      #8e9cb7 65%,
-      #ffffff 100%
-    );
-    align-items: center;
-    justify-content: center;
-  }
- 
-  .incorrect-left-content {
-    width: 100%;
-    height: 100%;
-    padding: 10px 0 0;
-    justify-content: center;
-  }
- 
-  .incorrect-brand-title,
-  .incorrect-left-content h1,
-  .incorrect-quote-image {
-    display: none;
-  }
- 
-  .incorrect-illustration-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
- 
-  /* Large top illustration centered without distortion */
-  .incorrect-left-illustration {
-    max-height: 100%;
-    max-width: 95%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    transform: none;
-  }
- 
-  /* Bottom content container filling 58dvh */
-  .incorrect-right {
-    width: 100%;
-    height: 58vh;
-    height: 58dvh;
-    min-height: unset;
-    max-height: unset;
-    flex: none;
-    padding: clamp(8px, 1.5vh, 16px) 16px clamp(12px, 2vh, 20px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
- 
-  /* Centered vertical flow with tight spacing */
-  .incorrect-card {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
- 
-  .incorrect-card form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
- 
-  .incorrect-lock-wrapper {
-    width: clamp(42px, 10vw, 50px);
-    height: clamp(42px, 10vw, 50px);
-    margin-bottom: clamp(10px, 1.8vh, 18px);
-  }
- 
-  .incorrect-blue-circle {
-    width: 100%;
-    height: 100%;
-  }
- 
-  .incorrect-lock-icon {
-    width: clamp(14px, 3.5vw, 16px);
-    height: clamp(14px, 3.5vw, 16px);
-  }
- 
-  .incorrect-main-message {
-    font-size: clamp(10px, 2.8vw, 12px);
-    margin-bottom: clamp(6px, 1vh, 10px);
-  }
- 
-  .incorrect-otp-container {
-    margin: clamp(8px, 1.8vh, 14px) 0 clamp(4px, 1vh, 8px);
-    gap: clamp(4px, 1.5vw, 8px);
-  }
- 
-  .incorrect-otp-container input {
-    width: clamp(34px, 9vw, 40px);
-    min-width: clamp(34px, 9vw, 40px);
-    max-width: clamp(34px, 9vw, 40px);
-    height: clamp(36px, 5vh, 42px);
-    font-size: clamp(15px, 4vw, 18px);
-  }
- 
-  .invalid-otp-message {
-    font-size: clamp(9px, 2.5vw, 11px);
-    margin: clamp(4px, 1vh, 8px) 0 clamp(6px, 1.2vh, 10px);
-  }
- 
-  .invalid-otp-icon {
+
+  .otp-back-login img {
     width: 12px;
     height: 12px;
   }
- 
-  .incorrect-resend-row {
-    font-size: clamp(9px, 2.6vw, 11px);
-    gap: clamp(10px, 3vw, 18px);
-    margin-bottom: clamp(8px, 1.8vh, 14px);
+}
+
+/* =========================================================
+   VERY LARGE DESKTOP (1920px+)
+   ========================================================= */
+
+@media (min-width: 1920px) {
+  .otp-verification-left-content {
+    width: min(78%, 680px);
   }
- 
-  .incorrect-verify-button {
-    height: clamp(38px, 5vh, 44px);
-    font-size: clamp(11px, 3vw, 13px);
+
+  .otp-brand-title {
+    font-size: 16px;
   }
- 
-  .incorrect-back-login {
-    margin-top: clamp(10px, 2vh, 16px);
-    font-size: clamp(9px, 2.6vw, 11px);
+
+  .otp-hero-title {
+    font-size: 38px;
   }
- 
-  .incorrect-back-login img {
+
+  .otp-left-illustration {
+    max-height: 57vh;
+  }
+
+  .otp-quote {
+    max-width: 680px;
+  }
+
+  .otp-verification-card {
+    --otp-content-width: 382px;
+    --otp-button-width: 440px;
+
+    width: 580px;
+  }
+
+  .otp-input-container input {
+    width: 52px;
+    height: 54px;
+
+    flex: 0 0 52px;
+
+    font-size: 24px;
+  }
+
+  .otp-main-message {
+    font-size: 18px;
+  }
+
+  .otp-invalid-message,
+  .otp-resend-row,
+  .otp-back-login {
+    font-size: 13px;
+  }
+
+  .otp-verify-button {
+    height: 56px;
+
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   MOBILE (BELOW 768px)
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .otp-verification-page {
+    position: relative;
+
+    width: 100%;
+
+    height: auto;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* =======================================================
+     MOBILE LEFT
+     ======================================================= */
+
+  .otp-verification-left {
+    width: 100%;
+    height: auto;
+
+    min-height: 360px;
+
+    flex: none;
+
+    display: flex;
+
+    overflow: visible;
+
+    background: linear-gradient(
+      180deg,
+      #566b94 0%,
+      #6f81a4 38%,
+      #8e9cb7 70%,
+      #cbd2df 90%,
+      #ffffff 100%
+    );
+  }
+
+  .otp-verification-left-content {
+    width: 100%;
+    height: auto;
+
+    min-height: 360px;
+
+    padding: 24px 24px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    overflow: visible;
+  }
+
+  /* =======================================================
+     MOBILE BRAND
+     ======================================================= */
+
+  .otp-brand-title {
+    width: 100%;
+
+    margin: 0 0 9px;
+
+    font-size: 12px;
+
+    line-height: 1.25;
+
+    text-align: left;
+  }
+
+  /* =======================================================
+     MOBILE HEADING
+     ======================================================= */
+
+  .otp-hero-title {
+    width: 100%;
+
+    margin: 0;
+
+    font-size: clamp(22px, 7vw, 30px);
+
+    line-height: 1.18;
+
+    text-align: left;
+  }
+
+  /* =======================================================
+     MOBILE ILLUSTRATION
+     ======================================================= */
+
+  .otp-illustration-wrapper {
+    width: 100%;
+
+    height: 210px;
+    min-height: 210px;
+
+    flex: none;
+
+    padding: 8px 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: visible;
+
+    transform: none;
+  }
+
+  .otp-left-illustration {
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    max-height: 205px;
+
+    object-fit: contain;
+
+    transform: none;
+  }
+
+  /* =======================================================
+     MOBILE QUOTE
+     ======================================================= */
+
+  .otp-quote {
+    width: min(92%, 380px);
+
+    margin: 2px auto 0;
+
+    padding: 10px 12px;
+
+    display: block;
+
+    border-radius: 6px;
+  }
+
+  .otp-quote-text {
+    font-size: 10px;
+
+    line-height: 1.4;
+  }
+
+  .otp-quote-author {
+    font-size: 10px;
+
+    line-height: 1.4;
+  }
+
+  /* =======================================================
+     MOBILE RIGHT
+     ======================================================= */
+
+  .otp-verification-right {
+    width: 100%;
+    height: auto;
+
+    min-height: 360px;
+
+    flex: none;
+
+    padding: 30px 20px 35px;
+
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow: visible;
+
+    background: #ffffff;
+  }
+
+  .otp-verification-card {
+    --otp-box-size: clamp(36px, 10vw, 40px);
+    --otp-box-gap: clamp(5px, 2vw, 9px);
+    --otp-content-width: calc(6 * var(--otp-box-size) + 5 * var(--otp-box-gap));
+    --otp-button-width: min(340px, 100%);
+
+    width: 100%;
+    max-width: 380px;
+
+    transform: none;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  /* =======================================================
+     MOBILE LOCK
+     ======================================================= */
+
+  .otp-lock-wrapper {
+    width: 64px;
+    height: 64px;
+
+    margin-bottom: 20px;
+  }
+
+  /* =======================================================
+     MOBILE MESSAGE
+     ========================================================= */
+
+  .otp-main-message {
+    font-size: 15px;
+
+    line-height: 1.4;
+  }
+
+  /* =======================================================
+     MOBILE OTP
+     ======================================================= */
+
+  .otp-input-container {
+    margin-top: 16px;
+    margin-bottom: 9px;
+
+    gap: var(--otp-box-gap);
+
+    display: flex;
+
+    justify-content: space-between;
+  }
+
+  .otp-input-container input {
+    width: var(--otp-box-size);
+    min-width: var(--otp-box-size);
+    max-width: var(--otp-box-size);
+
+    height: 40px;
+
+    flex: 0 0 var(--otp-box-size);
+
+    font-size: 17px;
+  }
+
+  /* =======================================================
+     MOBILE INVALID
+     ======================================================= */
+
+  .otp-invalid-message {
+    margin-left: 0;
+    margin-right: 0;
+
+    font-size: 11px;
+  }
+
+  .otp-invalid-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* =======================================================
+     MOBILE RESEND
+     ======================================================= */
+
+  .otp-resend-row {
+    margin-left: 0;
+    margin-right: 0;
+
+    margin-top: 9px;
+    margin-bottom: 15px;
+
+    font-size: 11px;
+  }
+
+  /* =======================================================
+     MOBILE VERIFY
+     ======================================================= */
+
+  .otp-verify-button {
+    height: 46px;
+
+    font-size: 13px;
+  }
+
+  /* =======================================================
+     MOBILE BACK
+     ======================================================= */
+
+  .otp-back-login {
+    margin-top: 20px;
+
+    font-size: 11px;
+  }
+
+  .otp-back-login img {
     width: 10px;
     height: 10px;
   }
 }
- 
- 
-/* =========================================
-   SMALL MOBILE (320px - 380px)
-========================================= */
- 
+
+/* =========================================================
+   SMALL MOBILE (380px AND BELOW)
+   ========================================================= */
+
 @media (max-width: 380px) {
- 
-  .incorrect-left {
-    height: 40vh;
-    height: 40dvh;
+  .otp-verification-left-content {
+    padding: 20px 18px 15px;
   }
- 
-  .incorrect-right {
-    height: 60vh;
-    height: 60dvh;
-    padding: 6px 12px 14px;
+
+  .otp-verification-left {
+    min-height: 335px;
   }
- 
-  .incorrect-left-illustration {
-    max-width: 92%;
+
+  .otp-brand-title {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+
+  .otp-hero-title {
+    font-size: 21px;
+  }
+
+  .otp-illustration-wrapper {
+    height: 185px;
+    min-height: 185px;
+  }
+
+  .otp-left-illustration {
+    max-height: 180px;
+  }
+
+  .otp-quote {
+    width: 95%;
+    max-width: 95%;
+
+    padding: 9px 10px;
+  }
+
+  .otp-quote-text,
+  .otp-quote-author {
+    font-size: 9px;
+  }
+
+  .otp-verification-right {
+    padding: 26px 14px 32px;
+  }
+
+  .otp-main-message {
+    font-size: 14px;
+  }
+
+  .otp-verify-button {
+    height: 44px;
   }
 }
- 
