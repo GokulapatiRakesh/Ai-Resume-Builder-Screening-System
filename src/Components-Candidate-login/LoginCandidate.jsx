@@ -54,7 +54,7 @@ const LoginCandidate = () => {
   };
 
   const handleRecruiter = () => {
-    navigate("/Recruiter-login");
+    navigate("");
   };
 
   const handleForgotPassword = (e) => {
@@ -89,20 +89,7 @@ const LoginCandidate = () => {
         <div className="candidate-login-auth">
           <h1 className="candidate-login-title">Login your account</h1>
 
-          {/* CANDIDATE / RECRUITER SWITCH */}
-          <div className="candidate-login-role-switch">
-            <button type="button" className="candidate-login-role active">
-              Candidate
-            </button>
-
-            <button
-              type="button"
-              className="candidate-login-role"
-              onClick={handleRecruiter}
-            >
-              Recruiter
-            </button>
-          </div>
+      
 
           {/* LOGIN FORM */}
           <form className="candidate-login-form" onSubmit={handleLogin}>
